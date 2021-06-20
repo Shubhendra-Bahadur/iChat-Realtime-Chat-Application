@@ -61,6 +61,7 @@ io.on("connection", (socket) => {
       io.to(user?.room).emit("message", {
         user: "admin",
         text: `${user.name} has left`,
+        disconnect:"disconnected"
       });
     }
   });
