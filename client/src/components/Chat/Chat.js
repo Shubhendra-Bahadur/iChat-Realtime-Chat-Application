@@ -6,6 +6,7 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import Messages from "../Messages/Messages";
 import TextContainer from "../TextContainer/TextContainer";
+import {useHistory} from 'react-router-dom';
 
 let socket;
 
@@ -16,6 +17,7 @@ function Chat({ location }) {
   const [message, setMessage] = useState("");
   const [users, setUsers] = useState([]);
   const ENDPOINT = "https://ichat-realtine-chat-app.herokuapp.com";
+  const history=useHistory();
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
@@ -26,7 +28,8 @@ function Chat({ location }) {
 
     socket.emit("join", { name, room }, (error) => {
       if (error) {
-        alert(error);
+        history.push('/');
+        alert(error.error);
       }
     });
   }, [ENDPOINT, location.search]);

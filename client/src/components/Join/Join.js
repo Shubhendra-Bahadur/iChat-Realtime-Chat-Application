@@ -11,7 +11,7 @@ function Join() {
         <h1 className="heading">Join</h1>
         <div>
           <input
-            placeholder=""
+            placeholder="Enter your name"
             className="joinInput"
             type="text"
             onChange={(e) => {
@@ -21,7 +21,7 @@ function Join() {
         </div>
         <div>
           <input
-            placeholder=""
+            placeholder="Enter room name"
             className="joinInput mt-20"
             type="text"
             onChange={(e) => {
